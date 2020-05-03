@@ -5,12 +5,10 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
-
 	"context"
-
 	pb "github.com/hungtt57/shippy-service-consignment/proto/consignment"
 
-	micro "github.com/micro/go-micro"
+	"github.com/micro/go-micro"
 )
 
 const (

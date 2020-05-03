@@ -6,10 +6,13 @@ RUN apk update && apk upgrade && \
 RUN mkdir /app
 WORKDIR /app
 
+ENV GO111MODULE=on
+
 COPY . .
 
-RUN go get
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o shippy-service-consignment
+RUN go mod download
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o shippy-cli-consignment
+
 
 
 FROM alpine:latest
